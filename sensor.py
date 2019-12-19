@@ -3,7 +3,7 @@ import math
 
 class DroneSensor(object):
     def __init__(self):
-        self.thr = [[-6, 6], [-6, 6], [-6, 6]]
+        self.thr = [[-10, 10], [-10, 10], [-10, 10]]
         center_censor = [1, 0, 0]
         self.sensor_list = []
         self.sensor_list.append(center_censor)
@@ -63,7 +63,8 @@ class DroneSensor(object):
                 w_close, w_dis = 3, 100000
                 for j in range(0, 3):
                     wall[j] = self.thr[j][0 if line[j] < 0 else 1]
-                    tmp = (wall[j] - drone_crdn[j]) / line[j] if line[j] != 0 else 100000
+                    print("line", line[j])
+                    tmp = ((wall[j] - drone_crdn[j]) / line[j]) if line[j] != 0 else 100000
                     if w_dis > tmp:
                         w_dis = tmp
                         w_close = j
@@ -71,5 +72,4 @@ class DroneSensor(object):
                 for j in range(0, 3):
                     crd[j] = drone_crdn[j] + line[j] * ld
                 ret_list[i] = self.dist(drone_crdn, crd)
-        print(ret_list)
         return ret_list

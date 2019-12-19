@@ -14,6 +14,7 @@ import torch.optim as optim
 import numpy as np
 import math
 from copy import deepcopy
+import random
 from things.QuadDrone import BigQuad
 
 # Files
@@ -49,13 +50,12 @@ def make_obstacle():
         if input_obst == 'end':
             break
         obst_l.append(list(map(int, input_obst.split(' '))))
-    print(obst_l)
 
 
 class DDPG:
     def __init__(self):
         self.stateDim = 27
-        self.actionDim = 3
+        self.actionDim = 4
         self.actor = Actor()
         self.critic = Critic()
         self.targetActor = deepcopy(Actor())
@@ -105,7 +105,6 @@ class DDPG:
             Returns the action which maximizes the Q-value of the current state-action pair"""
         with torch.no_grad():
             noise = self.epsilon * Variable(torch.FloatTensor(self.noise()))
-        print(noise)
         action = self.actor(curState)
         actionNoise = action + noise
         return actionNoise
@@ -141,13 +140,20 @@ class DDPG:
                 # Step episode
                 action = action.detach()
                 action = action[0]
-                action[0] = action[0] * math.pi
-                action[1] = action[1] * math.pi
-                action[2] = action[2] * 20
-                print()
-                print("This is action")
                 print(action)
-                print()
+                for k in range(3):
+                    if action[k] < 0.33:
+                        action[k] = -1
+                    elif action[k] < 0.66:
+                        action[k] = 0
+                    else:
+                        action[k] = 1
+                action[3] *= 20
+                print("locate: ", statev[0])
+                print("target: ", statev[1])
+                print("vel: ", statev[2])
+                print("obs: ", obstacle)
+                print("action: ", action)
                 last_state = state
                 quad.setMotors(action, statev[4], False)
 
@@ -164,20 +170,16 @@ class DDPG:
                 state = state.unsqueeze(0)
                 reward, terminal = quad.giveReward(obstacle)
                 reward = torch.tensor([reward], device=device)
+                print("reward: ", reward)
+                print()
 
                 ct = False
                 if terminal is True:
                     ct = True
                     terminal = False
 
-                print(action)
-                print(statev[0])
-                print(statev[1])
-                print()
-                action = action.unsqueeze(0)
                 # Update replay bufer
                 self.replayBuffer.append((last_state, action, state, reward, terminal))
-
 
                 # Training loop
                 if len(self.replayBuffer) >= self.warmup:
@@ -186,10 +188,9 @@ class DDPG:
 
                     curStateBatch = torch.cat(curStateBatch)
                     actionBatch = torch.cat(actionBatch)
-
+                    actionBatch = actionBatch.view(64, -1)
                     qPredBatch = self.critic(curStateBatch, actionBatch)
-                    print(len(nextStateBatch), len(rewardBatch), len(terminalBatch))
-                    qTargetBatch = self.getQTarget(nextStateBatch, rewardBatch, terminalBatch).view(-1,1)
+                    qTargetBatch = self.getQTarget(nextStateBatch, rewardBatch, terminalBatch).view(-1, 1)
 
                     # Critic update
                     self.criticOptim.zero_grad()
