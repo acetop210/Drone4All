@@ -33,6 +33,261 @@ from subprocess import Popen, PIPE
 
 # log = tellopy.logger.Logger('TelloUI')
 
+def back_left_down(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(speed/ 1.414*1.207)
+    getattr(drone, 'left')(speed/ 1.414*1.102)
+    getattr(drone, 'right')(0)
+    drone.up(0)
+    drone.down(speed*2)
+
+
+def back_left(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(speed/ 1.414*1.207)
+    getattr(drone, 'left')(speed/ 1.414*1.102)
+    getattr(drone, 'right')(0)
+    drone.up(0)
+    drone.down(0)
+
+def back_left_up(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(speed/ 1.414*1.207)
+    getattr(drone, 'left')(speed/ 1.414*1.102)
+    getattr(drone, 'right')(0)
+    drone.up(speed*2)
+    drone.down(0)
+
+
+def back_down(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(speed*1.207)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(0)
+    drone.up(0)
+    drone.down(speed*2)
+
+
+def back(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(speed*1.207)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(0)
+    drone.up(0)
+    drone.down(0)
+
+
+def back_up(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(speed*1.207)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(0)
+    drone.up(speed*2)
+    drone.down(0)
+
+
+def back_right_down(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(speed/ 1.414*1.207)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(speed/ 1.414*1.102)
+    drone.up(0)
+    drone.down(speed*2)
+
+
+def back_right(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(speed/ 1.414*1.207)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(speed/ 1.414*1.102)
+    drone.up(0)
+    drone.down(0)
+
+
+def back_right_up(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(speed/ 1.414*1.207)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(speed/ 1.414*1.102)
+    drone.up(speed*2)
+    drone.down(0)
+
+
+def left_down(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(speed*1.102)
+    getattr(drone, 'right')(0)
+    drone.up(0)
+    drone.down(speed*2)
+
+
+def left(drone, speed):
+    # getattr(drone, 'forward')(0)
+    # getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(speed*1.102)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
+    # drone.down(0)
+
+
+def left_up(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(speed*1.102)
+    getattr(drone, 'right')(0)
+    drone.up(speed*2)
+    drone.down(0)
+
+
+def down(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(0)
+    drone.up(0)
+    drone.down(speed*2)
+
+
+def stop(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(0)
+    drone.up(0)
+    drone.down(0)
+    drone.land()
+
+
+def up(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(0)
+    drone.up(speed*2)
+    drone.down(0)
+
+
+def right_down(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(speed*1.102)
+    drone.up(0)
+    drone.down(speed*2)
+
+
+def right(drone, speed):
+    # getattr(drone, 'forward')(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
+    getattr(drone, 'right')(speed*1.102)
+    # drone.up(0)
+    # drone.down(0)
+
+
+def right_up(drone, speed):
+    getattr(drone, 'forward')(0)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(speed*1.102)
+    drone.up(speed*2)
+    drone.down(0)
+
+
+def fw_left_down(drone, speed):
+    getattr(drone, 'forward')(speed/ 1.414*1.207)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(speed/ 1.414*1.102)
+    getattr(drone, 'right')(0)
+    drone.up(0)
+    drone.down(speed*2)
+
+
+def fw_left(drone, speed):
+    getattr(drone, 'forward')(speed/ 1.414*1.207)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(speed/ 1.414*1.102)
+    getattr(drone, 'right')(0)
+    drone.up(0)
+    drone.down(0)
+
+
+def fw_left_up(drone, speed):
+    getattr(drone, 'forward')(speed/ 1.414*1.207)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(speed/ 1.414*1.102)
+    getattr(drone, 'right')(0)
+    drone.up(speed*2)
+    drone.down(0)
+
+
+def fw_down(drone, speed):
+    getattr(drone, 'forward')(speed*1.207)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(0)
+    drone.up(0)
+    drone.down(speed*2)
+
+
+def fw(drone, speed):
+    getattr(drone, 'forward')(speed*1.207)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(0)
+    drone.up(0)
+    drone.down(0)
+
+
+def fw_up(drone, speed):
+    getattr(drone, 'forward')(speed*1.207)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(0)
+    drone.up(speed*2)
+    drone.down(0)
+
+
+def fw_right_down(drone, speed):
+    getattr(drone, 'forward')(speed/ 1.414*1.207)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(speed/ 1.414*1.102)
+    drone.up(0)
+    drone.down(speed*2)
+
+
+def fw_right(drone, speed):
+    getattr(drone, 'forward')(speed/ 1.414*1.207)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(speed/ 1.414*1.102)
+    drone.up(0)
+    drone.down(0)
+
+
+def fw_right_up(drone, speed):
+    getattr(drone, 'forward')(speed/ 1.414*1.207)
+    getattr(drone, 'backward')(0)
+    getattr(drone, 'left')(0)
+    getattr(drone, 'right')(speed/ 1.414*1.102)
+    drone.up(speed*2)
+    drone.down(0)
+
+
+command_list = [[[back_left_down,  back_left,  back_left_up],
+                 [back_down,       back,       back_up],
+                 [back_right_down, back_right, back_right_up]],
+                [[left_down,       left,       left_up],
+                 [down,            stop,       up],
+                 [right_down,      right,      right_up]],
+                [[fw_left_down,    fw_left,    fw_left_up],
+                 [fw_down,         fw,         fw_up],
+                 [fw_right_down,   fw_right,   fw_right_up]]]
+
+direc = [(1, 2, 1), (1, 0, 1), (1, 2, 1)]
+
 prev_flight_data = None
 video_player = None
 video_recorder = None
@@ -235,35 +490,33 @@ def main():
     drone.subscribe(drone.EVENT_FILE_RECEIVED, handleFileReceived)
     speed = 30
 
+    drone.takeoff()
+    time.sleep(0.5)
+    print('hello?')
     try:
-        while 1:
-            time.sleep(0.01)  # loop with pygame.event.get() is too mush tight w/o some sleep
-            for e in pygame.event.get():
+        # for i in range(1):  # loop with pygame.event.get() is too mush tight w/o some sleep
+        for x, y, z in direc:
+            print(x, y, z)
+            command = command_list[x][y][z]
+            for i in range(1):
                 # WASD for movement
-                if e.type == pygame.locals.KEYDOWN:
-                    print('+' + pygame.key.name(e.key))
-                    keyname = pygame.key.name(e.key)
-                    if keyname == 'escape':
-                        drone.quit()
-                        exit(0)
-                    if keyname in controls:
-                        key_handler = controls[keyname]
-                        if type(key_handler) == str:
-                            getattr(drone, key_handler)(speed)
-                        else:
-                            key_handler(drone, speed)
-
-                elif e.type == pygame.locals.KEYUP:
-                    print('-' + pygame.key.name(e.key))
-                    keyname = pygame.key.name(e.key)
-                    if keyname in controls:
-                        key_handler = controls[keyname]
-                        if type(key_handler) == str:
-                            getattr(drone, key_handler)(0)
-                        else:
-                            key_handler(drone, 0)
-    except e:
-        print(str(e))
+                # print('+' + command)
+                # keyname = command
+                # if keyname == 'escape':
+                #     drone.quit()
+                #     exit(0)
+                # if keyname in controls:
+                #     key_handler = controls[keyname]
+                #     if type(key_handler) == str:
+                #         getattr(drone, key_handler)(speed)
+                #     else:
+                #         key_handler(drone, speed)
+                command(drone, 10)
+                time.sleep(1)
+        drone.land()
+    except Exception as e:
+        print(e)
+        drone.land()
     finally:
         print('Shutting down connection to drone...')
         if video_recorder:
