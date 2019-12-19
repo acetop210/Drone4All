@@ -33,92 +33,96 @@ from subprocess import Popen, PIPE
 
 # log = tellopy.logger.Logger('TelloUI')
 
+
+DT = 1
+
+
 def back_left_down(drone, speed):
-    getattr(drone, 'forward')(0)
+    # getattr(drone, 'forward')(0)
     getattr(drone, 'backward')(speed/ 1.414*1.207)
     getattr(drone, 'left')(speed/ 1.414*1.102)
-    getattr(drone, 'right')(0)
-    drone.up(0)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
     drone.down(speed*2)
 
 
 def back_left(drone, speed):
-    getattr(drone, 'forward')(0)
+    # getattr(drone, 'forward')(0)
     getattr(drone, 'backward')(speed/ 1.414*1.207)
     getattr(drone, 'left')(speed/ 1.414*1.102)
-    getattr(drone, 'right')(0)
-    drone.up(0)
-    drone.down(0)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
+    # drone.down(0)
 
 def back_left_up(drone, speed):
-    getattr(drone, 'forward')(0)
+    # getattr(drone, 'forward')(0)
     getattr(drone, 'backward')(speed/ 1.414*1.207)
     getattr(drone, 'left')(speed/ 1.414*1.102)
-    getattr(drone, 'right')(0)
+    # getattr(drone, 'right')(0)
     drone.up(speed*2)
-    drone.down(0)
+    # drone.down(0)
 
 
 def back_down(drone, speed):
-    getattr(drone, 'forward')(0)
+    # getattr(drone, 'forward')(0)
     getattr(drone, 'backward')(speed*1.207)
-    getattr(drone, 'left')(0)
-    getattr(drone, 'right')(0)
-    drone.up(0)
+    # getattr(drone, 'left')(0)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
     drone.down(speed*2)
 
 
 def back(drone, speed):
-    getattr(drone, 'forward')(0)
+    # getattr(drone, 'forward')(0)
     getattr(drone, 'backward')(speed*1.207)
-    getattr(drone, 'left')(0)
-    getattr(drone, 'right')(0)
-    drone.up(0)
-    drone.down(0)
+    # getattr(drone, 'left')(0)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
+    # drone.down(0)
 
 
 def back_up(drone, speed):
-    getattr(drone, 'forward')(0)
+    # getattr(drone, 'forward')(0)
     getattr(drone, 'backward')(speed*1.207)
-    getattr(drone, 'left')(0)
-    getattr(drone, 'right')(0)
+    # getattr(drone, 'left')(0)
+    # getattr(drone, 'right')(0)
     drone.up(speed*2)
-    drone.down(0)
+    # drone.down(0)
 
 
 def back_right_down(drone, speed):
-    getattr(drone, 'forward')(0)
+    # getattr(drone, 'forward')(0)
     getattr(drone, 'backward')(speed/ 1.414*1.207)
-    getattr(drone, 'left')(0)
+    # getattr(drone, 'left')(0)
     getattr(drone, 'right')(speed/ 1.414*1.102)
-    drone.up(0)
+    # drone.up(0)
     drone.down(speed*2)
 
 
 def back_right(drone, speed):
-    getattr(drone, 'forward')(0)
+    # getattr(drone, 'forward')(0)
     getattr(drone, 'backward')(speed/ 1.414*1.207)
-    getattr(drone, 'left')(0)
+    # getattr(drone, 'left')(0)
     getattr(drone, 'right')(speed/ 1.414*1.102)
-    drone.up(0)
-    drone.down(0)
+    # drone.up(0)
+    # drone.down(0)
 
 
 def back_right_up(drone, speed):
-    getattr(drone, 'forward')(0)
+    # getattr(drone, 'forward')(0)
     getattr(drone, 'backward')(speed/ 1.414*1.207)
-    getattr(drone, 'left')(0)
+    # getattr(drone, 'left')(0)
     getattr(drone, 'right')(speed/ 1.414*1.102)
     drone.up(speed*2)
-    drone.down(0)
+    # drone.down(0)
 
 
 def left_down(drone, speed):
-    getattr(drone, 'forward')(0)
-    getattr(drone, 'backward')(0)
+    # getattr(drone, 'forward')(0)
+    # getattr(drone, 'backward')(0)
     getattr(drone, 'left')(speed*1.102)
-    getattr(drone, 'right')(0)
-    drone.up(0)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
     drone.down(speed*2)
 
 
@@ -132,48 +136,48 @@ def left(drone, speed):
 
 
 def left_up(drone, speed):
-    getattr(drone, 'forward')(0)
-    getattr(drone, 'backward')(0)
+    # getattr(drone, 'forward')(0)
+    # getattr(drone, 'backward')(0)
     getattr(drone, 'left')(speed*1.102)
-    getattr(drone, 'right')(0)
+    # getattr(drone, 'right')(0)
     drone.up(speed*2)
-    drone.down(0)
+    # drone.down(0)
 
 
 def down(drone, speed):
-    getattr(drone, 'forward')(0)
-    getattr(drone, 'backward')(0)
-    getattr(drone, 'left')(0)
-    getattr(drone, 'right')(0)
-    drone.up(0)
+    # getattr(drone, 'forward')(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
     drone.down(speed*2)
 
 
 def stop(drone, speed):
-    getattr(drone, 'forward')(0)
-    getattr(drone, 'backward')(0)
-    getattr(drone, 'left')(0)
-    getattr(drone, 'right')(0)
-    drone.up(0)
-    drone.down(0)
+    # getattr(drone, 'forward')(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
+    # drone.down(0)
     drone.land()
 
 
 def up(drone, speed):
-    getattr(drone, 'forward')(0)
-    getattr(drone, 'backward')(0)
-    getattr(drone, 'left')(0)
-    getattr(drone, 'right')(0)
+    # getattr(drone, 'forward')(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
+    # getattr(drone, 'right')(0)
     drone.up(speed*2)
-    drone.down(0)
+    # drone.down(0)
 
 
 def right_down(drone, speed):
-    getattr(drone, 'forward')(0)
-    getattr(drone, 'backward')(0)
-    getattr(drone, 'left')(0)
+    # getattr(drone, 'forward')(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
     getattr(drone, 'right')(speed*1.102)
-    drone.up(0)
+    # drone.up(0)
     drone.down(speed*2)
 
 
@@ -187,93 +191,93 @@ def right(drone, speed):
 
 
 def right_up(drone, speed):
-    getattr(drone, 'forward')(0)
-    getattr(drone, 'backward')(0)
-    getattr(drone, 'left')(0)
+    # getattr(drone, 'forward')(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
     getattr(drone, 'right')(speed*1.102)
     drone.up(speed*2)
-    drone.down(0)
+    # drone.down(0)
 
 
 def fw_left_down(drone, speed):
     getattr(drone, 'forward')(speed/ 1.414*1.207)
-    getattr(drone, 'backward')(0)
+    # getattr(drone, 'backward')(0)
     getattr(drone, 'left')(speed/ 1.414*1.102)
-    getattr(drone, 'right')(0)
-    drone.up(0)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
     drone.down(speed*2)
 
 
 def fw_left(drone, speed):
     getattr(drone, 'forward')(speed/ 1.414*1.207)
-    getattr(drone, 'backward')(0)
+    # getattr(drone, 'backward')(0)
     getattr(drone, 'left')(speed/ 1.414*1.102)
-    getattr(drone, 'right')(0)
-    drone.up(0)
-    drone.down(0)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
+    # drone.down(0)
 
 
 def fw_left_up(drone, speed):
     getattr(drone, 'forward')(speed/ 1.414*1.207)
-    getattr(drone, 'backward')(0)
+    # getattr(drone, 'backward')(0)
     getattr(drone, 'left')(speed/ 1.414*1.102)
-    getattr(drone, 'right')(0)
+    # getattr(drone, 'right')(0)
     drone.up(speed*2)
-    drone.down(0)
+    # drone.down(0)
 
 
 def fw_down(drone, speed):
     getattr(drone, 'forward')(speed*1.207)
-    getattr(drone, 'backward')(0)
-    getattr(drone, 'left')(0)
-    getattr(drone, 'right')(0)
-    drone.up(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
     drone.down(speed*2)
 
 
 def fw(drone, speed):
     getattr(drone, 'forward')(speed*1.207)
-    getattr(drone, 'backward')(0)
-    getattr(drone, 'left')(0)
-    getattr(drone, 'right')(0)
-    drone.up(0)
-    drone.down(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
+    # getattr(drone, 'right')(0)
+    # drone.up(0)
+    # drone.down(0)
 
 
 def fw_up(drone, speed):
     getattr(drone, 'forward')(speed*1.207)
-    getattr(drone, 'backward')(0)
-    getattr(drone, 'left')(0)
-    getattr(drone, 'right')(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
+    # getattr(drone, 'right')(0)
     drone.up(speed*2)
-    drone.down(0)
+    # drone.down(0)
 
 
 def fw_right_down(drone, speed):
     getattr(drone, 'forward')(speed/ 1.414*1.207)
-    getattr(drone, 'backward')(0)
-    getattr(drone, 'left')(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
     getattr(drone, 'right')(speed/ 1.414*1.102)
-    drone.up(0)
+    # drone.up(0)
     drone.down(speed*2)
 
 
 def fw_right(drone, speed):
     getattr(drone, 'forward')(speed/ 1.414*1.207)
-    getattr(drone, 'backward')(0)
-    getattr(drone, 'left')(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
     getattr(drone, 'right')(speed/ 1.414*1.102)
-    drone.up(0)
-    drone.down(0)
+    # drone.up(0)
+    # drone.down(0)
 
 
 def fw_right_up(drone, speed):
     getattr(drone, 'forward')(speed/ 1.414*1.207)
-    getattr(drone, 'backward')(0)
-    getattr(drone, 'left')(0)
+    # getattr(drone, 'backward')(0)
+    # getattr(drone, 'left')(0)
     getattr(drone, 'right')(speed/ 1.414*1.102)
     drone.up(speed*2)
-    drone.down(0)
+    # drone.down(0)
 
 
 command_list = [[[back_left_down,  back_left,  back_left_up],
@@ -286,7 +290,7 @@ command_list = [[[back_left_down,  back_left,  back_left_up],
                  [fw_down,         fw,         fw_up],
                  [fw_right_down,   fw_right,   fw_right_up]]]
 
-direc = [(1, 2, 1), (1, 0, 1), (1, 2, 1)]
+direc = [(2, 0, 1), (0, 1, 0), (2, 1, 1)]
 
 prev_flight_data = None
 video_player = None
@@ -488,7 +492,7 @@ def main():
     drone.subscribe(drone.EVENT_FLIGHT_DATA, flightDataHandler)
     drone.subscribe(drone.EVENT_VIDEO_FRAME, videoFrameHandler)
     drone.subscribe(drone.EVENT_FILE_RECEIVED, handleFileReceived)
-    speed = 30
+    speed = 80
 
     drone.takeoff()
     time.sleep(0.5)
@@ -511,9 +515,13 @@ def main():
                 #         getattr(drone, key_handler)(speed)
                 #     else:
                 #         key_handler(drone, speed)
-                command(drone, 10)
-                time.sleep(1)
+                max_time_end = time.time() + DT * 5
+                while True:
+                    command(drone, 10)
+                    if time.time() > max_time_end:
+                        break
         drone.land()
+        drone.quit()
     except Exception as e:
         print(e)
         drone.land()
